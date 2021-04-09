@@ -19,7 +19,10 @@ type PersonalInfoProps = {
 
 export const PersonalInfo: React.FC<PersonalInfoProps> = observer(
   ({ onNext }) => {
-    const { user } = useContext(CheckoutContext);
+    const checkoutStore = useContext(CheckoutContext);
+    const { user } = checkoutStore;
+    const validateUserProp = checkoutStore.validateUserProp.bind(checkoutStore);
+    const isValidUserInfo = checkoutStore.validateUser.bind(checkoutStore);
 
     return (
       <>
@@ -34,6 +37,8 @@ export const PersonalInfo: React.FC<PersonalInfoProps> = observer(
             variant="outlined"
             label="Full Name"
             fullWidth
+            error={!!validateUserProp("name")}
+            helperText={validateUserProp("name")}
             InputProps={{
               startAdornment: (
                 <InputAdornment position="start">
@@ -50,6 +55,8 @@ export const PersonalInfo: React.FC<PersonalInfoProps> = observer(
             label="Email"
             type="email"
             fullWidth
+            error={!!validateUserProp("email")}
+            helperText={validateUserProp("email")}
             InputProps={{
               startAdornment: (
                 <InputAdornment position="start">
@@ -66,6 +73,8 @@ export const PersonalInfo: React.FC<PersonalInfoProps> = observer(
             label="Phone"
             type="phone"
             fullWidth
+            error={!!validateUserProp("phone")}
+            helperText={validateUserProp("phone")}
             InputProps={{
               startAdornment: (
                 <InputAdornment position="start">
@@ -83,6 +92,8 @@ export const PersonalInfo: React.FC<PersonalInfoProps> = observer(
             multiline
             rows="3"
             fullWidth
+            error={!!validateUserProp("address")}
+            helperText={validateUserProp("address")}
             InputProps={{
               startAdornment: (
                 <InputAdornment position="start">
@@ -93,6 +104,7 @@ export const PersonalInfo: React.FC<PersonalInfoProps> = observer(
           />
           <Box my={2} component="div">
             <Button
+              disabled={isValidUserInfo()}
               variant="contained"
               fullWidth
               color="primary"
