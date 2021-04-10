@@ -25,4 +25,22 @@ export const productData: IProduct[] = [
     imageUrl: "shoes.jpg",
     price: 22,
   },
+  {
+    id: 5,
+    nama: "Sport Shoes",
+    imageUrl: "shoes.jpg",
+    price: 26,
+  },
+  {
+    id: 6,
+    nama: "Sport short",
+    imageUrl: "short.jpg",
+    price: 13,
+  },
+  {
+    id: 7,
+    nama: "Sport Jeans",
+    imageUrl: "jeans.jpg",
+    price: 30,
+  },
 ];

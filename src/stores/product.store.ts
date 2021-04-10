@@ -1,4 +1,4 @@
-import { productData } from "./../models/product-date";
+import { productData } from "../models/product-data";
 import { IProduct } from "./../models/product";
 import { action, computed, makeObservable, observable } from "mobx";
 
