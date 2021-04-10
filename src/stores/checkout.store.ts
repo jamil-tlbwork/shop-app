@@ -7,8 +7,8 @@ import { Payment, User } from "./../models";
 const url = "https://orderdetails.free.beeceptor.com";
 
 export class CheckoutStore {
-  user!: User;
-  paymentInfo!: Payment;
+  user: User;
+  paymentInfo: Payment;
 
   constructor() {
     makeAutoObservable(this);
