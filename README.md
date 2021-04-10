@@ -4,5 +4,4 @@
 
 - run `yarn install` or `npm install`
 - run `yarn start` or `npm start`
-
-and for login, enter any username and password
+- for login, enter any value as username and password
